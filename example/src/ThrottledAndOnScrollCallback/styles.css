@@ -1,0 +1,24 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.fixed {
+  position: fixed;
+  top: 30px;
+}
+
+.empty-space {
+  height: 300vh;
+}
+
+.slider {
+  width: 90%;
+  margin: 100px auto 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.MuiSlider-rail {
+  left: 0
+}
