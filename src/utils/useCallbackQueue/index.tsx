@@ -15,7 +15,8 @@ import { TAnyFunction } from "../../typings";
 
 export const useCallbackQueue = (
   callback: TAnyFunction,
-  interval: number
+  interval: number,
+  shouldPush: boolean = true
 ) => {
   /**
    * Mutable object of the TypeScript Queue `array`. It will live until unmounted.
@@ -96,7 +97,9 @@ export const useCallbackQueue = (
    * Returns a memoized callback, caching the `callback` arguments.
    */
   return useCallback((...args: any) => {
-    callbackQueue.push(() => callback(...args));
+    if (shouldPush) {
+      callbackQueue.push(() => callback(...args));
+    }
     setLength(callbackQueue.length);
-  }, [callback]);
+  }, [callback, shouldPush]);
 };
